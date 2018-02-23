@@ -6,7 +6,7 @@ prev: typechecking-with-prototypes.html
 next: refs-and-the-dom.html
 ---
 
-Static type checkers like [Flow](https://flowtype.org/) and [TypeScript](https://www.typescriptlang.org/) identify certain types of problems before you even run your code. They can also improve developer workflow by adding features like auto-completion. For this reason, we recommend using Flow or TypeScript instead of `PropTypes` for larger code bases.
+Static type checkers like [Flow](https://flow.org/) and [TypeScript](https://www.typescriptlang.org/) identify certain types of problems before you even run your code. They can also improve developer workflow by adding features like auto-completion. For this reason, we recommend using Flow or TypeScript instead of `PropTypes` for larger code bases.
 
 ## Flow
 
@@ -22,25 +22,23 @@ We will explain these steps below in detail.
 
 ### Adding Flow to a Project
 
-First, navigate to your project directory in the terminal. You will need to run two commands.
+First, navigate to your project directory in the terminal. You will need to run the following command:
 
 If you use [Yarn](https://yarnpkg.com/), run:
 
 ```bash
 yarn add --dev flow-bin
-yarn run flow init
 ```
 
 If you use [npm](https://www.npmjs.com/), run:
 
 ```bash
 npm install --save-dev flow-bin
-npm run flow init
 ```
 
-The first command installs the latest version of Flow into your project. The second command creates a Flow configuration file that you will need to commit.
+This command installs the latest version of Flow into your project.
 
-Finally, add `flow` to the `"scripts"` section of your `package.json`:
+Now, add `flow` to the `"scripts"` section of your `package.json` to be able to use this from the terminal:
 
 ```js{4}
 {
@@ -52,6 +50,22 @@ Finally, add `flow` to the `"scripts"` section of your `package.json`:
   // ...
 }
 ```
+
+Finally, run one of the following commands:
+
+If you use [Yarn](https://yarnpkg.com/), run:
+
+```bash
+yarn run flow init
+```
+
+If you use [npm](https://www.npmjs.com/), run:
+
+```bash
+npm run flow init
+```
+
+This command will create a Flow configuration file that you will need to commit.
 
 ### Stripping Flow Syntax from the Compiled Code
 
@@ -243,7 +257,7 @@ If you use npm, run:
 npm run build
 ```
 
-If you see no output, it mean's that it completed successfully.
+If you see no output, it means that it completed successfully.
 
 
 ### Type Definitions

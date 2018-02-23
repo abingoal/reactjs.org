@@ -31,7 +31,9 @@ class Greeting extends React.Component {
 }
 ```
 
-If you don't use ES6 yet, you may use the [`create-react-class`](/docs/react-api.html#createclass) module instead. Take a look at [Using React without ES6](/docs/react-without-es6.html) to learn more.
+If you don't use ES6 yet, you may use the `create-react-class` module instead. Take a look at [Using React without ES6](/docs/react-without-es6.html) to learn more.
+
+Note that **we don't recommend creating your own base component classes**. Code reuse is primarily achieved through composition rather than inheritance in React. Take a look at [these common scenarios](/docs/composition-vs-inheritance.html) to get a feel for how to use composition.
 
 ### The Component Lifecycle
 
@@ -120,9 +122,9 @@ You can also return multiple items from `render()` using an array:
 ```javascript
 render() {
   return [
-    <li key="A">First item</li>,
-    <li key="B">Second item</li>,
-    <li key="C">Third item</li>,
+    <li key="A">First item</li>,
+    <li key="B">Second item</li>,
+    <li key="C">Third item</li>,
   ];
 }
 ```
@@ -130,6 +132,20 @@ render() {
 > Note:
 >
 > Don't forget to [add keys](/docs/lists-and-keys.html#keys) to elements in a fragment to avoid the key warning.
+
+Since [React 16.2.0](/blog/2017/11/28/react-v16.2.0-fragment-support.html), the same can also be accomplished using [fragments](/docs/fragments.html), which don't require keys for static items:
+
+```javascript
+render() {
+  return (
+    <React.Fragment>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </React.Fragment>
+  );
+}
+```
 
 * * *
 
@@ -170,7 +186,7 @@ If you "fork" props by using them for state, you might also want to implement [`
 componentWillMount()
 ```
 
-`componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore calling `setState()` synchronously in this method will not trigger an extra rendering. Generally, we recommend using the `constructor()` instead.
+`componentWillMount()` is invoked just before mounting occurs. It is called before `render()`, therefore calling `setState()` synchronously in this method will not trigger an extra rendering. Generally, we recommend using the `constructor()` instead.
 
 Avoid introducing any side-effects or subscriptions in this method. For those use cases, use `componentDidMount()` instead.
 
@@ -200,7 +216,7 @@ componentWillReceiveProps(nextProps)
 
 `componentWillReceiveProps()` is invoked before a mounted component receives new props. If you need to update the state in response to prop changes (for example, to reset it), you may compare `this.props` and `nextProps` and perform state transitions using `this.setState()` in this method.
 
-Note that React may call this method even if the props have not changed, so make sure to compare the current and next values if you only want to handle changes. This may occur when the parent component causes your component to re-render.
+Note that React will call this method even if the props have not changed, so make sure to compare the current and next values if you only want to handle changes. This may occur when the parent component causes your component to re-render.
 
 React doesn't call `componentWillReceiveProps()` with initial props during [mounting](#mounting). It only calls this method if some of component's props may update. Calling `this.setState()` generally doesn't trigger `componentWillReceiveProps()`.
 
@@ -232,7 +248,7 @@ We do not recommend doing deep equality checks or using `JSON.stringify()` in `s
 componentWillUpdate(nextProps, nextState)
 ```
 
-`componentWillUpdate()` is invoked immediately before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
+`componentWillUpdate()` is invoked just before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
 
 Note that you cannot call `this.setState()` here; nor should you do anything else (e.g. dispatch a Redux action) that would trigger an update to a React component before `componentWillUpdate()` returns.
 
@@ -351,7 +367,11 @@ this.setState((prevState) => {
 });
 ```
 
-For more detail, see the [State and Lifecycle guide](/docs/state-and-lifecycle.html).
+For more detail, see:
+
+* [State and Lifecycle guide](/docs/state-and-lifecycle.html)
+* [In depth: When and why are `setState()` calls batched?](https://stackoverflow.com/a/48610973/458193)
+* [In depth: Why isn't `this.state` updated immediately?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
 * * *
 

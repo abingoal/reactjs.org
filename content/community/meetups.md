@@ -53,6 +53,9 @@ Do you have a local React.js meetup? Add it here! (Please keep the list alphabet
 ## Greece
 * [Thessaloniki](https://www.meetup.com/Thessaloniki-ReactJS-Meetup/)
 
+## Hungary
+* [Budapest](https://www.meetup.com/React-Budapest/)
+
 ## India
 * [Bangalore](https://www.meetup.com/ReactJS-Bangalore/)
 
@@ -96,6 +99,7 @@ Do you have a local React.js meetup? Add it here! (Please keep the list alphabet
 * [Boston, MA - ReactJS](http://www.meetup.com/ReactJS-Boston/)
 * [Boston, MA - React Native](http://www.meetup.com/Boston-React-Native-Meetup/)
 * [Chicago, IL - ReactJS](http://www.meetup.com/React-Chicago/)
+* [Columbus, OH - ReactJS](http://www.meetup.com/ReactJS-Columbus-meetup/)
 * [Dallas, TX - ReactJS](http://www.meetup.com/ReactDallas/)
 * [Irvine, CA - ReactJS](http://www.meetup.com/ReactJS-OC/)
 * [Las Vegas, NV - ReactJS](http://www.meetup.com/ReactVegas/)

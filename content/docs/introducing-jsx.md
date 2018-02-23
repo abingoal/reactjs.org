@@ -62,7 +62,7 @@ We split JSX over multiple lines for readability. While it isn't required, when 
 
 ### JSX is an Expression Too
 
-After compilation, JSX expressions become regular JavaScript objects.
+After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.
 
 This means that you can use JSX inside of `if` statements and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
 
@@ -93,7 +93,7 @@ Don't put quotes around curly braces when embedding a JavaScript expression in a
 
 >**Warning:**
 >
->Since JSX is closer to JavaScript than HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
+>Since JSX is closer to JavaScript than to HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
 >
 >For example, `class` becomes [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) in JSX, and `tabindex` becomes [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
